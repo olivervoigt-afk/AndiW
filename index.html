@@ -34,7 +34,7 @@
   .hint{font-size:11px;color:var(--text-muted);text-align:center;margin-top:12px}
   header{padding:18px 28px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:14px;background:var(--surface);flex-shrink:0}
   .hlogo{height:36px;display:flex;align-items:center;flex-shrink:0}
-  .hlogo .fmp{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:800;font-size:28px;color:#fff;letter-spacing:-1px;line-height:1}
+  .logo-svg{height:26px;width:auto}
   .htxt h1{font-family:'DM Serif Display',serif;font-size:17px;font-weight:400;letter-spacing:-.02em}
   .htxt p{font-size:12px;color:var(--text-muted);margin-top:1px}
   .hright{margin-left:auto;display:flex;align-items:center;gap:12px}
@@ -82,7 +82,16 @@
 <body>
 <div id="overlay">
   <div class="card">
-    <div class="card-logo"><div class="lm">FMP</div><h2>80/20 Fitness Assistent</h2></div>
+    <div class="card-logo">
+      <svg viewBox="0 0 100 28" height="22" xmlns="http://www.w3.org/2000/svg">
+        <g transform="skewX(-10)" fill="#e8704a">
+          <rect x="2" y="0" width="5" height="28"/><rect x="2" y="0" width="18" height="6"/><rect x="2" y="11" width="13" height="6"/><rect x="2" y="22" width="18" height="6"/>
+          <polygon points="28,28 28,0 52,0 52,28 46,28 40,12 34,28"/>
+          <polygon points="60,28 60,0 80,0 80,14 65,14 65,28"/>
+        </g>
+      </svg>
+      <h2>80/20 Fitness Assistent</h2>
+    </div>
     <p>Um den KI-Assistenten zu nutzen, ben&ouml;tigst du einen <strong>Anthropic API Key</strong>.<br><br>
     Erstelle einen unter <a href="https://console.anthropic.com/settings/keys" target="_blank">console.anthropic.com</a> &rarr; API Keys &rarr; Create Key.</p>
     <div class="field">
@@ -99,7 +108,21 @@
   </div>
 </div>
 <header>
-  <div class="hlogo"><span class="fmp">FMP</span></div>
+  <div class="hlogo">
+    <svg class="logo-svg" viewBox="0 0 100 28" xmlns="http://www.w3.org/2000/svg">
+      <g transform="skewX(-10)" fill="#e8704a">
+        <!-- E -->
+        <rect x="2" y="0" width="5" height="28"/>
+        <rect x="2" y="0" width="18" height="6"/>
+        <rect x="2" y="11" width="13" height="6"/>
+        <rect x="2" y="22" width="18" height="6"/>
+        <!-- M -->
+        <polygon points="28,28 28,0 52,0 52,28 46,28 40,12 34,28"/>
+        <!-- P -->
+        <polygon points="60,28 60,0 80,0 80,14 65,14 65,28"/>
+      </g>
+    </svg>
+  </div>
   <div class="htxt"><h1>80/20 Fitness Assistent</h1><p>von Christian Zippel</p></div>
   <div class="hright"><button id="btn-key">API Key &auml;ndern</button><div class="dot"></div></div>
 </header>
