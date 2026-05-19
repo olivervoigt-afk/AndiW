@@ -188,7 +188,6 @@ function addMsg(role,text,suggs){
   var av=document.createElement('div');av.className='av';av.textContent=role==='user'?'Du':'KI';
   var b=document.createElement('div');b.className='bub';b.innerHTML=fmt(text);
   if(role==='ai'){
-    var tg=document.createElement('span');tg.className='stag';tg.textContent='Quelle: '+TITLE;b.appendChild(tg);
   }
   if(suggs&&suggs.length){
     var sg=document.createElement('div');sg.className='suggs';
@@ -247,7 +246,6 @@ async function send(){
     var sd=document.createElement('div');sd.className='msg ai';
     var sav=document.createElement('div');sav.className='av';sav.textContent='KI';
     var sb=document.createElement('div');sb.className='bub';
-    var stg=document.createElement('span');stg.className='stag';stg.textContent='Quelle: '+TITLE;
     sd.appendChild(sav);sd.appendChild(sb);chatEl.appendChild(sd);chatEl.scrollTop=chatEl.scrollHeight;
     var rep='';
     var reader=r.body.getReader();var dec=new TextDecoder();var buf='';
@@ -263,11 +261,11 @@ async function send(){
           var ev=JSON.parse(json);
           if(ev.type==='content_block_delta'&&ev.delta&&ev.delta.type==='text_delta'){
             rep+=ev.delta.text;
-            sb.innerHTML=fmt(rep);sb.appendChild(stg);chatEl.scrollTop=chatEl.scrollHeight;
+            sb.innerHTML=fmt(rep);chatEl.scrollTop=chatEl.scrollHeight;
           }
           if(ev.type==='error'){
             var eem=ev.error&&ev.error.message?ev.error.message:'Fehler';
-            sb.innerHTML=fmt('Fehler: '+eem);sb.appendChild(stg);return;
+            sb.innerHTML=fmt('Fehler: '+eem);return;
           }
         }catch(pe){}
       }
